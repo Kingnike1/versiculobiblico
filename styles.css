@@ -1,0 +1,127 @@
+/* Estilos globais */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #000428, #004e92);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: auto; /* Garante rolagem automática tanto horizontal quanto vertical */
+    box-sizing: border-box;
+}
+
+/* Contêiner principal */
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 10px;
+    overflow-wrap: break-word; /* Garante que o texto não ultrapasse a largura */
+}
+
+/* Caixa de versículo */
+.verse-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1.5s ease;
+}
+
+/* Estilo para o versículo */
+#verse {
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+    margin: 0;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Estilo para o botão */
+.button, .btn {
+    background: #1a73e8;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.button:hover, .btn:hover {
+    background: #1558b0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #verse {
+        font-size: 1.3rem;
+    }
+    .button, .btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    #verse {
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+    .button, .btn {
+        width: 100%;
+    }
+}
+/* Caixa de Favoritos */
+.favorites-box {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .favorites-box p {
+    background: transparent;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    word-break: break-word;
+  }
+  
+  .favorites-box p:hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+  
