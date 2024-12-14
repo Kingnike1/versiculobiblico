@@ -77,16 +77,20 @@ function startAutoRefresh() {
   showRandomVerse();
   setInterval(showRandomVerse, 5000);
 }
+// Função para copiar o conteúdo do container do versículo
+function copyVerse() {
+  const verseElement = document.getElementById('verse');
+  const verseText = verseElement.textContent;
 
-function copyToClipboard(text) {
+  // Criação de um textarea temporário para copiar o texto
   const textarea = document.createElement('textarea');
-  textarea.value = text;
+  textarea.value = verseText;
   document.body.appendChild(textarea);
   textarea.select();
   document.execCommand('copy');
   document.body.removeChild(textarea);
 
-  alert('Texto copiado: ' + text);
+  alert('Versículo copiado: ' + verseText);
 }
 // Carrega um novo versículo e mostra favoritos ao abrir a página
 document.addEventListener('DOMContentLoaded', () => {
