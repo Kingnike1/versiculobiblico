@@ -65,13 +65,34 @@ function displayFavorites() {
   favoritesContainer.innerHTML = '';
 
   const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  favorites.forEach(fav => {
+  favorites.forEach((fav, index) => {
     const p = document.createElement('p');
     p.textContent = fav;
-    p.onclick = () => alert(fav);
+    
+    // Botão de excluir
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = '❌';
+    deleteButton.style.marginLeft = '10px';
+    deleteButton.style.color = 'red';
+    deleteButton.style.background = 'transparent';
+    deleteButton.style.border = 'none';
+    deleteButton.style.cursor = 'pointer';
+    
+    deleteButton.onclick = () => removeFromFavorites(index);
+
+    p.appendChild(deleteButton);
     favoritesContainer.appendChild(p);
   });
 }
+
+function removeFromFavorites(index) {
+  let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  favorites.splice(index, 1); // Remove o versículo pelo índice
+  localStorage.setItem('favorites', JSON.stringify(favorites)); // Atualiza o localStorage
+  displayFavorites(); // Atualiza a exibição
+}
+
+
 // Função para reiniciar o temporizador a cada 5 segundos
 function startAutoRefresh() {
   showRandomVerse();
